@@ -6,7 +6,7 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, TWITTER, GITHUB, LINKEDIN} from "../config";
 import Project from "../components/Project.astro";
 import { Image } from "@astrojs/image/components";
-
+import splitbee from '@splitbee/web';
 
 type PinnedRepo = {
   owner: string;
@@ -24,8 +24,9 @@ const pinnedRepos = await fetch(
   return (await response.json()) as PinnedRepo[];
 });
 
-
+splitbee.init();
 ---
+
 
 
 <!DOCTYPE html>
