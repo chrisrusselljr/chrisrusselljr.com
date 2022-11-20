@@ -14,6 +14,9 @@ const { name, owner, description, stars, language } = Astro.props;
   href={`https://github.com/${owner}/${name}`}
   target="_blank"
   class="hover:no-underline"
+  data-splitbee-event="Visit Github"
+  data-splitbee-event-linkType="Body"
+  data-splitbee-event-project={name}
 >
   <div
     class="h-36 flex flex-col justify-between gap-y-2 border border-neutral-700 bg-t-black hover:scale-105 ease-out transition-transform p-4 rounded-xl"

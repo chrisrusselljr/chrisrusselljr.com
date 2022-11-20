@@ -11,21 +11,30 @@ const { twitter, github, linkedin } = Astro.props;
     <li class="c-links__item">
       <a
         href={`https://twitter.com/${twitter}`}
+        data-splitbee-event="Visit Twitter"
+        data-splitbee-event-linkType="Footer"
         target="_blank"
-        class="c-links__icon"
       >
         <i class="fa-brands fa-twitter" title="twitter"></i>
       </a>
     </li>
 
     <li class="c-links__item">
-      <a href={`https://github.com/${github}`} target="_blank">
+      <a href={`https://github.com/${github}`} 
+      data-splitbee-event="Visit Github"
+      data-splitbee-event-linkType="Footer"
+      target="_blank"
+      >
         <i class="fa-brands fa-github" title="github"></i>
       </a>
     </li>
 
     <li class="c-links__item">
-      <a href={`https://linkedin.com/in/${linkedin}`} target="_blank">
+      <a href={`https://linkedin.com/in/${linkedin}`} 
+      data-splitbee-event="Visit LinkedIn"
+      data-splitbee-event-linkType="Footer"
+      target="_blank"
+      >
         <i class="fa-brands fa-linkedin-in" title="linkedin"></i>
       </a>
     </li>
@@ -85,9 +94,5 @@ const { twitter, github, linkedin } = Astro.props;
     margin: 8px 8px 0;
     list-style: none;
   }
-  .c-links__icon {
-    width: 16px;
-    height: 16px;
-    fill: currentColor;
-  }
+ 
 </style>
