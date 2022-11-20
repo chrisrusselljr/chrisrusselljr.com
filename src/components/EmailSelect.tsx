@@ -27,7 +27,7 @@ export const EmailSelect = () => {
                   active ? "bg-neutral-800" : ""
                 }`}
                 onClick={() =>
-                  navigator.clipboard.writeText("chris.russell02@gmail.com")
+                  navigator.clipboard.writeText("chris@tetrateras.com")
                 }
               >
                 <div className="flex justify-between">
@@ -57,7 +57,7 @@ export const EmailSelect = () => {
                 className={`block px-4 py-2 text-sm rounded-b-xl hover:no-underline w-full ${
                   active ? "bg-neutral-800" : ""
                 }`}
-                href="mailto:chris.russell02@gmail.com"
+                href="mailto:chris@tetrateras.com"
               >
                 <div className="flex justify-between">
                   <span>Send</span>
