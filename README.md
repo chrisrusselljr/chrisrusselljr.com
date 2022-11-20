@@ -1,23 +1,20 @@
-# Portfolio
-
+# Portfolio 
 Personal blog of Chris Russell Jr. made made using [Astro](https://astro.build).
 
+## Set Up
+```sh 
+npm i
+npm run dev 
+```
 
-*to be added*
+## 2022/2023 Planning
 
-Intesting topics:
-- [ ] Creating an NFT / web3 development
-- [ ] Learning about software development
-- [ ] Negotiation (halfway started)
+To do:
+- [ ] Add images to blog posts
+- [ ] Add socials to footer
+- [ ] Do actual full stack projects
+- [ ] Add newsletter/subscription option
 
-To dos:
-- [ ] add mailchimp and subscribe button to index and posts - linked
-- [X] ~~add section for book reviews + referral hyperlinks~~ deicded to use tags and only one post section (home page)
-- [X] add reading time to posts
-
-Blog schedule:
-- [ ] dailys
-- [ ] negotiation mindset - how to win, together
-- [X] finding fullfillment in your career
-- [X] sticking out
-- [X] about me
+Post ideas
+- [ ] naive with managers (failure to be rude in conversation)
+- [ ] knowing your true north (learning, being challenged)
