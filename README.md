@@ -10,10 +10,10 @@ npm run dev
 ## 2022/2023 Planning
 
 To do:
-- [X] Improve SEO
-- [ ] Add images to blog posts
-- [ ] Refine blog format (slug, image, draft, image preview/thumbnail, tags )
+- [X] Improve SEO (title & description)
 - [X] Add socials to footer
+- [ ] Add images to blog posts
+- [ ] Refine blog format (slug, image, draft, image preview/thumbnail, tags)
 - [ ] Do actual full stack projects
 - [ ] Add newsletter/subscription option
 - [ ] Add download resume button
@@ -29,6 +29,3 @@ Project Ideas
 - [ ] Total net worth tracker (Chase, Amex, USAA, Fidelity, Shareworks)
 - [ ] Snake
 - [ ] Tic tac toe
-
-
-
