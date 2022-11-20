@@ -1,5 +1,8 @@
 import { Menu, Transition } from "@headlessui/react";
 import { type ReactNode, Fragment } from "react";
+import splitbee from '@splitbee/web';
+
+
 
 export const EmailSelect = () => {
   return (
@@ -26,8 +29,9 @@ export const EmailSelect = () => {
                 className={`block px-4 py-2 text-sm cursor-pointer rounded-t-xl w-full border-b border-neutral-700 ${
                   active ? "bg-neutral-800" : ""
                 }`}
-                onClick={() =>
-                  navigator.clipboard.writeText("chris@tetrateras.com")
+                onClick={() =>{navigator.clipboard.writeText("chris@tetrateras.com");window.splitbee.track("Copy Email")}
+
+                  
                 }
               >
                 <div className="flex justify-between">
