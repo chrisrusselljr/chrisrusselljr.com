@@ -2,8 +2,6 @@ import { Menu, Transition } from "@headlessui/react";
 import { type ReactNode, Fragment } from "react";
 import splitbee from '@splitbee/web';
 
-
-
 export const EmailSelect = () => {
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -29,7 +27,8 @@ export const EmailSelect = () => {
                 className={`block px-4 py-2 text-sm cursor-pointer rounded-t-xl w-full border-b border-neutral-700 ${
                   active ? "bg-neutral-800" : ""
                 }`}
-                onClick={() =>{navigator.clipboard.writeText("chris@tetrateras.com");splitbee.track("Copy Email")}
+                onClick={() =>{navigator.clipboard.writeText("chris@tetrateras.com");splitbee.track("Email Header Button",{type: "Copy"
+                })}
 
                   
                 }
