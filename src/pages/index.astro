@@ -1,0 +1,85 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import heroImage from "../../public/images/hero.jpg";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import Project from "../components/Project.astro";
+import { Image } from "@astrojs/image/components";
+
+type PinnedRepo = {
+  owner: string;
+  repo: string;
+  description: string;
+  language: string;
+  languageColor: string;
+  stars: number;
+  forks: string;
+};
+
+const pinnedRepos = await fetch(
+  "https://gh-pinned-repos.egoist.dev/?username=chrisrusselljr"
+).then(async (response) => {
+  return (await response.json()) as PinnedRepo[];
+});
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={`${SITE_TITLE} home`} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header title={SITE_TITLE} />
+    <main class="text-lg text-neutral-200">
+      <div class="flex justify-evenly">
+        <Image
+          src={heroImage}
+          class="rounded-full m-3 w-3/4"
+          alt="hero-image"
+        />
+      </div>
+     
+      <h1 class="text-4xl pb-2 mt-4">Hi, I'm Chris</h1>
+      <br />
+
+      <p>
+        I'm a <b>Mechanical Engineer</b>, <b>Supply Chain Expert</b>,
+        self-taught <b>Web Developer</b>, located in Los Angeles. I'm currently
+        working as a Systems Analyst at SpaceX, driving process improvement for
+        the Raptor, Starship, and Launch Vehicle Supply Chain Teams.
+      </p>
+
+      <br />
+      <p>
+        In my free time, you can find me watching web development tutorials,
+        catching splat points at Orangetheory, or producing <a
+          href="https://soundcloud.com/crussell"
+          target="_blank">house music</a>. I also enjoy <a href="/blog">writing</a>, djing, and photography.
+      </p>
+      <br />
+      <br />
+      <h2 class="text-3xl pb-4">Things I've Built</h2>
+
+      <section
+        id="projects"
+        class="grid grid-cols-1 gap-4 auto-cols-max sm:grid-cols-2 sm:gap-3"
+      >
+        {
+          pinnedRepos.map((repo) => {
+            return (
+              <Project
+                name={repo.repo}
+                owner={repo.owner}
+                description={repo.description}
+                stars={repo.stars}
+                language={repo.language}
+              />
+            );
+          })
+        }
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
