@@ -3,3 +3,7 @@
 
 export const SITE_TITLE = "chris russell jr •";
 export const SITE_DESCRIPTION = "ESTP. Aspiring engineer. Into big problems. Always learning. Supply Chain Technology @ SpaceX 👨‍💻🚀 ";
+
+export const LINKEDIN = "chrisrusselljr";
+export const GITHUB = "chrisrusselljr";
+export const TWITTER = "chrisrusselljr";

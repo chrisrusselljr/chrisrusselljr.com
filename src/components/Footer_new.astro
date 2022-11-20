@@ -1,0 +1,93 @@
+---
+const today = new Date();
+
+const { twitter, github, linkedin } = Astro.props;
+---
+
+<hr class="border-t-2 border-t-neutral-800 mt-14" />
+
+<footer class="l-footer">
+  <ul class="c-links">
+    <li class="c-links__item">
+      <a
+        href={`https://twitter.com/${twitter}`}
+        target="_blank"
+        class="c-links__icon"
+      >
+        <i class="fa-brands fa-twitter" title="twitter"></i>
+      </a>
+    </li>
+
+    <li class="c-links__item">
+      <a href={`https://github.com/${github}`} target="_blank">
+        <i class="fa-brands fa-github fa-fw" title="github"></i>
+      </a>
+    </li>
+
+    <li class="c-links__item">
+      <a href={`https://linkedin.com/in/${linkedin}`} target="_blank">
+        <i class="fa-brands fa-linkedin-in fa-fw" title="linkedin"></i>
+      </a>
+    </li>
+
+    <li class="c-links__item">
+      <a href="/rss.xml" target="_blank">
+        <i class="fa-solid fa-rss fa-fw" title="rss"></i>
+      </a>
+    </li>
+
+    <li class="c-links__item">
+      <a href="/sitemap-index.xml" target="_blank">
+        <i class="fa-regular fa-map fa-fw" title="sitemap"></i>
+      </a>
+    </li>
+  </ul>
+
+  <p class="p-copyright"></p>
+
+  <p class="text-neutral-400 justify-center mt-3 text-sm">
+    &copy; {today.getFullYear()}
+  </p>
+</footer>
+
+<style>
+  .l-footer {
+    /* padding: 24px 0; */
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .c-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 8px 0 0;
+    padding: 0;
+  }
+  .c-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    border-color: #555;
+    border-radius: 50%;
+    color: #a9a9a9;
+    transition: 0.2s;
+    text-decoration: none;
+  }
+  .c-links a:hover {
+    background: #555;
+    color: #fff;
+  }
+  .c-links__item {
+    margin: 8px 8px 0;
+    list-style: none;
+  }
+  .c-links__icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+</style>
