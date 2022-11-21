@@ -10,12 +10,12 @@ export interface Props {
     description: string;
     pubDate: string;
     readingTime: string;
-    thumbnail: string;
+   
   };
 }
 
 const {
-  content: { title, description, pubDate, readingTime, thumbnail },
+  content: { title, description, pubDate, readingTime},
 } = Astro.props;
 
 ---
@@ -75,33 +75,11 @@ const {
             <span class="text-base">{readingTime}</span>
           </div>
         </div>
-        <hr class="border-t border-t-neutral-700 mt-8" />
-        <!-- <div class="flex justify-evenly"> -->
+        <hr class="border-t border-t-neutral-700 my-8" />
          
-          <img src={thumbnail} alt="thumbnail" class="p-article__thumbnail">
-          
-         
-        <!-- </div> -->
         <slot />
       </article>
     </main>
     <Footer twitter={TWITTER} github={GITHUB} linkedin={LINKEDIN} />
   </body>
 </html>
-
-<style>
-  .p-article__thumbnail {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    height: auto;
-    max-width: 100%;
-    border-radius: 0.75rem;
-    border-width: 1px;
-    --tw-border-opacity: 1;
-    border-color: rgb(38 38 38 / var(--tw-border-opacity));
-    display: block;
-    vertical-align: middle;
-
-}
-
-</style>
