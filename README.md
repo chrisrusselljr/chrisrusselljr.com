@@ -12,12 +12,12 @@ npm run dev
 To do:
 - [X] Improve SEO (title & description)
 - [X] Add socials to footer
-- [ ] Add images to blog posts
-- [ ] Refine blog format (slug, image, draft, image preview/thumbnail, tags)
+- [X] Add images to blog posts
+- [X] Refine blog format (slug, image, draft, image preview/thumbnail, tags)
 - [ ] Do actual full stack projects
-- [ ] Add newsletter/subscription option
 - [ ] Add download resume button
-- [ ] Convert exisitng blog posts
+- [X] Convert exisitng blog posts
+- [ ] Re-do banner
 
 Post ideas
 - [ ] naive with managers (failure to be rude in conversation)
