@@ -18,6 +18,7 @@ To do:
 - [ ] Add download resume button
 - [X] Convert exisitng blog posts
 - [ ] Re-do banner
+- [X] Smoothing
 
 Post ideas
 - [ ] naive with managers (failure to be rude in conversation)
