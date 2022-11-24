@@ -29,3 +29,29 @@ Project Ideas
 - [ ] Total net worth tracker (Chase, Amex, USAA, Fidelity, Shareworks)
 - [ ] Snake
 - [ ] Tic tac toe
+
+## Prisma Installation
+
+```
+# install
+npm install prisma --save-dev
+npx prisma init   
+
+# set up schema.prisma with 
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+# push new schema
+npx prisma db push   
+
+# Run prisma studio with 
+npx prisma studio
+```
