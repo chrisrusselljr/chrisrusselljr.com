@@ -1,12 +1,13 @@
 ---
 const today = new Date();
 
-const { twitter, github, linkedin } = Astro.props;
+const { twitter, github, linkedin, animate} = Astro.props;
 ---
 
-<hr class="border-t-2 border-t-neutral-800 mt-14" />
+<hr  data-animate style={`--stagger:${animate}`}  class="border-t-2 border-t-neutral-800 mt-14" />
 
-<footer class="l-footer">
+<footer data-animate
+style={`--stagger:${animate}`} class="l-footer">
   <ul class="c-links">
     <li class="c-links__item">
       <a

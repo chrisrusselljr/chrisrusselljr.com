@@ -148,4 +148,42 @@ ul > li {
 ul > li::marker {
   @apply text-neutral-500;
 }
+/* credit: paco coursey https://paco.me/ */
+[data-animation-controller="false"] [data-animate] {
+  -webkit-animation: none;
+  animation: none;
+}
+[data-animate] {
+  --stagger: 0;
+  --delay: 120ms;
+  --start: 0ms;
+}
+@media (prefers-reduced-motion: no-preference) {
+  [data-animate] {
+    -webkit-animation: enter 0.6s both;
+    animation: enter 0.6s both;
+    -webkit-animation-delay: calc(var(--stagger) * var(--delay) + var(--start));
+    animation-delay: calc(var(--stagger) * var(--delay) + var(--start));
+  }
+}
+@-webkit-keyframes enter {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes enter {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 
