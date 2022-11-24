@@ -35,7 +35,9 @@ const {
     <Header />
     <main>
       <article>
-        <h1>{title}</h1>
+        <div data-animate
+        style="--stagger:1">
+        <h1 >{title}</h1>
 
         <div class="pt-4 text-neutral-200">
           <div class="flex gap-x-2 items-center">
@@ -76,10 +78,15 @@ const {
           </div>
         </div>
         <hr class="border-t border-t-neutral-700 my-8" />
+      </div>
+        <div data-animate
+        style="--stagger:2">
+          <slot />
+        </div>
          
-        <slot />
+        
       </article>
     </main>
-    <Footer twitter={TWITTER} github={GITHUB} linkedin={LINKEDIN} />
+    <Footer twitter={TWITTER} github={GITHUB} linkedin={LINKEDIN} animate={3}/>
   </body>
 </html>
