@@ -8,7 +8,7 @@ export const EmailSelect = () => {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="text-t-blue hover:underline text-lg underline-offset-[3px]">
-          Email
+          Contact
         </Menu.Button>
       </div>
 
@@ -25,16 +25,15 @@ export const EmailSelect = () => {
           <Menu.Item>
             {({ active }) => (
               <div
-                className={`block px-4 py-2 text-sm cursor-pointer rounded-t-xl w-full border-b border-neutral-700 ${
-                  active ? "bg-neutral-800" : ""
-                }`}
-                onClick={() =>{navigator.clipboard.writeText("chris@tetrateras.com"); trackEvent('Email Copied')}
+                className={`block px-4 py-2 text-sm cursor-pointer rounded-t-xl w-full border-b border-neutral-700 ${active ? "bg-neutral-800" : ""
+                  }`}
+                onClick={() => { navigator.clipboard.writeText("chris@tetrateras.com"); trackEvent('Email Copied') }
 
-                  
+
                 }
               >
                 <div className="flex justify-between">
-                  <span>Copy</span>
+                  <span>Copy Email</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -57,14 +56,13 @@ export const EmailSelect = () => {
           <Menu.Item>
             {({ active }) => (
               <a
-                className={`block px-4 py-2 text-sm rounded-b-xl hover:no-underline w-full ${
-                  active ? "bg-neutral-800" : ""
-                }`}
+                className={`block px-4 py-2 text-sm rounded-b-xl hover:no-underline w-full ${active ? "bg-neutral-800" : ""
+                  }`}
                 href="mailto:chris@tetrateras.com"
                 data-splitbee-event="Email Sent"
               >
                 <div className="flex justify-between">
-                  <span>Send</span>
+                  <span>Send Email</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
