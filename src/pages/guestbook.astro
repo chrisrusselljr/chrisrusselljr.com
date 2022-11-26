@@ -1,0 +1,46 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, TWITTER, GITHUB, LINKEDIN } from "../config";
+import { guestbookLoader } from "../loaders/guestbook";
+import { format } from "date-fns";
+
+// import Article from '../components/Article.astro'; replace with message layout
+const messages = await guestbookLoader();
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={`${SITE_TITLE} guestbook`} description="Stop by and say 'hi." />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1 data-animate style="--stagger:1" class="pb-6">Guestbook</h1>
+
+      <section data-animate style="--stagger:2">
+        <div class="mt-4 space-y-8">
+          {
+            messages.map((message) => (
+              <div data-message-id={message.id} class="flex flex-col space-y-2">
+                <p class="w-full break-words ">{message.content}</p>
+                <div class="flex items-center space-x-3">
+                  <p class="text-sm text-gray-500">
+                    {message.name} / {format(new Date(message.createdAt), "d MMM yyyy 'at' h:mm bb")}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    </main>
+    <Footer twitter={TWITTER} github={GITHUB} linkedin={LINKEDIN} animate={3} />
+    <script>
+      import splitbee from "@splitbee/web";
+      splitbee.init();
+    </script>
+  </body>
+</html>
