@@ -6,7 +6,7 @@ declare global {
   var __db__: PrismaClient;
 }
 
-if (process.env.TEST_ENV === "production") {
+if (process.env.NODE_ENV === "production") {
   prisma = new PrismaClient();
 } else {
   if (!global.__db__) {
