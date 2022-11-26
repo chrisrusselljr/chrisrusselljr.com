@@ -13,11 +13,10 @@ datasource db {
 }
 
 model Guestbook {
-  id            Int           @id @default(autoincrement())
-  name          String        @db.VarChar(256)
-  email         String        @db.VarChar(256)
-  content       String        @db.VarChar(500)
-  createdAt     DateTime      @default(now())
-  updatedAt     DateTime      @updatedAt
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(256)
+  email     String   @db.VarChar(256)
+  content   String   @db.VarChar(500)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
-
