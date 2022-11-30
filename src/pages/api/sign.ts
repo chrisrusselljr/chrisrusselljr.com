@@ -11,7 +11,7 @@ export const post: APIRoute = async ({ params, request }) => {
   const userEmail = userData.get().userEmail;
   const userPicture = userData.get().userPicture;
 
-  const newPost = await prisma.post.create({
+  await prisma.post.create({
     data: {
       content: content,
       userId: userId,
