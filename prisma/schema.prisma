@@ -15,7 +15,7 @@ model User {
   userId    Int      @id @default(autoincrement())
   name      String
   email     String   @unique
-  picture   String
+  picture   String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -27,7 +27,7 @@ model Post {
   userId      Int
   userEmail   String
   userName    String
-  userPicture String
+  userPicture String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
