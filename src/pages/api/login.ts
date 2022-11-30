@@ -57,9 +57,8 @@ export const post: APIRoute = async ({ request }) => {
     userId: upsertUser.userId,
     userName: payload.name,
     userEmail: payload.email,
-    userPicture: payload.picture,
+    userPicture: payload.picture != null ? payload.picture : undefined,
   });
-
   const headers = createHeaders({ jwt, location: "/guestbook" });
 
   setUser({
