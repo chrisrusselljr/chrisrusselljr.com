@@ -28,11 +28,26 @@ export default defineConfig({
     rehypePlugins: [rehypeAutolinkHeadings],
     remarkPlugins: [remarkReadingTime],
     shikiConfig: {
-      theme: "vitesse-dark"
-    }
+      theme: "vitesse-dark",
+    },
   },
-  integrations: [mdx(), sitemap(), tailwind(), react(), prefetch(), image({
-    serviceEntryPoint: "@astrojs/image/sharp"
-  })],
-  adapter: netlify()
+  integrations: [
+    mdx(),
+    sitemap({
+      customPages: [
+        "https://www.chrisrusselljr.com/blog",
+        "https://www.chrisrusselljr.com/guestbook",
+        "https://www.chrisrusselljr.com/blog/empowerment",
+        "https://www.chrisrusselljr.com/blog/five-tips-for-effective-team-members",
+        "https://www.chrisrusselljr.com/blog/dont-ask-for-feedback",
+      ],
+    }),
+    tailwind(),
+    react(),
+    prefetch(),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
+  ],
+  adapter: netlify(),
 });
