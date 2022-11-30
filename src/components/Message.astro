@@ -23,7 +23,7 @@ const { postId, content, userId, userName, createdAt, currentUserId } = Astro.pr
       currentUserId === userId && (
         <>
           <button
-            class="text-sm text-red-400 leading-7"
+            class="text-sm text-red-400 "
             data-name="delete-button"
             data-item-id={postId}
             onclick={`handleDelete(${postId})`}

@@ -8,12 +8,8 @@ import { JWT_SECRET } from "../../constants/index";
 import { setUser } from "../../atoms/index";
 
 export const post: APIRoute = async ({ params, request }) => {
-  let user = {} as authUser;
+  let user = {} as User;
   const cookie = request.headers.get("cookie");
-
-  interface authUser extends User {
-    authed: boolean;
-  }
 
   if (cookie) {
     const parsed = parse(cookie);
@@ -22,7 +18,6 @@ export const post: APIRoute = async ({ params, request }) => {
       jwt.verify(parsed.__session_crj, JWT_SECRET, (e, decoded) => {
         if (!e && !!decoded) {
           user = {
-            authed: true,
             userId: decoded.userId,
             userName: decoded.userName,
             userEmail: decoded.userEmail,
