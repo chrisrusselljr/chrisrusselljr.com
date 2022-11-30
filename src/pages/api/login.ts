@@ -1,4 +1,4 @@
-import { AUTH_COOKIE_NAME, JWT_SECRET, SIGN_IN_WITH_GOOGLE_CLIENT_ID } from "./../../constants/index";
+import { AUTH_COOKIE_NAME, JWT_SECRET, PUBLIC_SIGN_IN_WITH_GOOGLE_CLIENT_ID } from "./../../constants/index";
 import type { APIRoute } from "astro";
 import jwt from "jsonwebtoken";
 import { prisma } from "../../utils/db";
@@ -28,7 +28,7 @@ export const createToken = ({ userId, userName, userEmail, userPicture }: User) 
   jwt.sign({ userId, userName, userEmail, userPicture }, JWT_SECRET, { expiresIn: "7d" });
 
 export const post: APIRoute = async ({ request }) => {
-  const CLIENT_ID = SIGN_IN_WITH_GOOGLE_CLIENT_ID;
+  const CLIENT_ID = PUBLIC_SIGN_IN_WITH_GOOGLE_CLIENT_ID;
   const client = new OAuth2Client(CLIENT_ID);
   const body = (await request.json()) as { token: string };
   const token = body.token;
