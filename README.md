@@ -1,30 +1,35 @@
-# Portfolio 
+# Portfolio
+
 Personal blog of Chris Russell Jr. made made using [Astro](https://astro.build).
 
 ## Set Up
-```sh 
+
+```sh
 npm i
-npm run dev 
+npm run dev
 ```
 
 ## 2022/2023 Planning
 
 To do:
-- [X] Improve SEO (title & description)
-- [X] Add socials to footer
-- [X] Add images to blog posts
-- [X] Refine blog format (slug, image, draft, image preview/thumbnail, tags)
+
+- [x] Improve SEO (title & description)
+- [x] Add socials to footer
+- [x] Add images to blog posts
+- [x] Refine blog format (slug, image, draft, image preview/thumbnail, tags)
 - [ ] Do actual full stack projects
 - [ ] Add download resume button
-- [X] Convert exisitng blog posts
+- [x] Convert exisitng blog posts
 - [ ] Re-do banner
-- [X] Smoothing
+- [x] Smoothing
 
 Post ideas
+
 - [ ] naive with managers (failure to be rude in conversation)
 - [ ] knowing your true north (learning, being challenged)
 
 Project Ideas
+
 - [ ] triple activity timer app (cr3ate)
 - [ ] Book Review Log
 - [ ] Total net worth tracker (Chase, Amex, USAA, Fidelity, Shareworks)
@@ -36,9 +41,9 @@ Project Ideas
 ```
 # install
 npm install prisma --save-dev
-npx prisma init   
+npx prisma init
 
-# set up schema.prisma with 
+# set up schema.prisma with
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["referentialIntegrity"]
@@ -51,8 +56,14 @@ datasource db {
 }
 
 # push new schema
-npx prisma db push   
+npx prisma db push
 
-# Run prisma studio with 
+# Run prisma studio with
 npx prisma studio
+
+# New database schema
+npx prisma migrate reset
+
+# Re-push new schema
+npx prisma db push
 ```

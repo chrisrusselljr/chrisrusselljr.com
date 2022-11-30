@@ -2,45 +2,104 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, TWITTER, GITHUB, LINKEDIN } from "../config";
+import { SITE_TITLE, TWITTER, GITHUB, LINKEDIN } from "../config";
 import { guestbookLoader } from "../loaders/guestbook";
-import { format } from "date-fns";
-
-// import Article from '../components/Article.astro'; replace with message layout
+import Message from "../components/Message.astro";
+import GuestbookForm from "../components/GuestbookForm.astro";
 const messages = await guestbookLoader();
+import { isLoggedIn } from "../utils/auth";
+const user = await isLoggedIn(Astro.request);
+
+import type { GuestbookPost } from "../types/index";
 ---
 
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <BaseHead title={`${SITE_TITLE} guestbook`} description="Stop by and say 'hi." />
   </head>
   <body>
     <Header />
-    <main>
-      <h1 data-animate style="--stagger:1" class="pb-6">Guestbook</h1>
 
-      <section data-animate style="--stagger:2">
-        <div class="mt-4 space-y-8">
-          {
-            messages.map((message) => (
-              <div data-message-id={message.id} class="flex flex-col space-y-2">
-                <p class="w-full break-words ">{message.content}</p>
-                <div class="flex items-center space-x-3">
-                  <p class="text-sm text-gray-500">
-                    {message.name} / {format(new Date(message.createdAt), "d MMM yyyy 'at' h:mm bb")}
-                  </p>
-                </div>
-              </div>
-            ))
-          }
-        </div>
-      </section>
-    </main>
-    <Footer twitter={TWITTER} github={GITHUB} linkedin={LINKEDIN} animate={3} />
+    <h1 data-animate style="--stagger:1" class="pb-6">Guestbook</h1>
+    <p class="text-gray-400 mb-4" data-animate style="--stagger:2">
+      Leave a comment below. It could be anything - appreciation, information, wisdom, or even humor. Surprise me!
+    </p>
+
+    <div id="submission-form" class="border rounded p-6 my-4 w-full border-gray-800 bg-blue-opaque" data-animate style="--stagger:2">
+      <h5 class="text-lg md:text-xl font-bold text-gray-100">Sign the Guestbook</h5>
+      <p class="my-1 text-gray-200">Share a message for a future visitor of my site.</p>
+
+      {
+        user.authed ? (
+      
+            <p>Signed in as {user.userName}</p>
+            <a
+              class="logout auth-link flex items-center justify-center my-4 font-bold h-8  bg-gray-700 text-gray-100 rounded w-28"
+              href="/api/logout"
+            >
+              Logout
+            </a>
+            <GuestbookForm />
+            <p class="text-sm text-gray-200">Your information is only used to display your name.</p>
+
+        ) : (
+          <div id="buttonDiv" class="ml-2 mt-2" />
+        )
+      }
+    </div>
+
+    <section id="messages-list" data-animate style="--stagger:3">
+      <div class="mt-4 space-y-8 pt-4">
+        {
+          messages.map((message: GuestbookPost) => (
+            <Message
+              postId={message.postId}
+              content={message.content}
+              userId={message.userId}
+              userName={message.userName}
+              createdAt={message.createdAt}
+              currentUserId={user.userId}
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    <Footer twitter={TWITTER} github={GITHUB} linkedin={LINKEDIN} animate={4} />
     <script>
       import splitbee from "@splitbee/web";
+      import { googleSignInResponse } from "../types/index";
+      import { revalidateMessages } from "../utils/dom";
       splitbee.init();
+
+      const handleCredentialResponse = async (response: googleSignInResponse) => {
+        const req = await fetch("/api/login", {
+          method: "POST",
+          body: JSON.stringify({
+            token: response.credential,
+          }),
+        });
+
+        if (req.ok) {
+          // return Astro.redirect("/guestbook");
+          // await revalidateMessages("#submission-form");
+          window.location.reload();
+        }
+      };
+
+      window.onload = function () {
+        // @ts-ignore
+        google.accounts.id.initialize({
+          client_id: import.meta.env.PUBLIC_SIGN_IN_WITH_GOOGLE_CLIENT_ID,
+          callback: handleCredentialResponse,
+        });
+        // @ts-ignore
+        google.accounts.id.renderButton(document.getElementById("buttonDiv"), {
+          theme: "outline",
+          size: "large",
+          type: "standard",
+        });
+      };
     </script>
   </body>
 </html>

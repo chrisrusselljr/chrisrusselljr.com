@@ -3,10 +3,9 @@ import BaseHead from "../components/BaseHead.astro";
 import heroImage from "../../public/images/hero.jpeg";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, TWITTER, GITHUB, LINKEDIN} from "../config";
+import { SITE_TITLE, SITE_DESCRIPTION, TWITTER, GITHUB, LINKEDIN } from "../config";
 import Project from "../components/Project.astro";
 import { Image } from "@astrojs/image/components";
-
 
 type PinnedRepo = {
   owner: string;
@@ -18,12 +17,9 @@ type PinnedRepo = {
   forks: string;
 };
 
-const pinnedRepos = await fetch(
-  "https://gh-pinned-repos.egoist.dev/?username=chrisrusselljr"
-).then(async (response) => {
+const pinnedRepos = await fetch("https://gh-pinned-repos.egoist.dev/?username=chrisrusselljr").then(async (response) => {
   return (await response.json()) as PinnedRepo[];
 });
-
 ---
 
 <!DOCTYPE html>
@@ -34,59 +30,37 @@ const pinnedRepos = await fetch(
   <body>
     <Header title={SITE_TITLE} />
     <main class="text-lg text-neutral-200">
-      <div class="flex justify-evenly" >
-        <Image
-        data-animate
-      style="--stagger:1"
-        
-          src={heroImage}
-          class="rounded-full m-3 w-3/4" 
-          alt="hero-image"
-        />
+      <div class="flex justify-evenly">
+        <Image data-animate style="--stagger:1" src={heroImage} class="rounded-full m-3 w-3/4" alt="hero-image" />
       </div>
-     
-      <h1 data-animate
-      style="--stagger:2" class="text-4xl pb-2 mt-4">Hi, I'm Chris</h1>
+
+      <h1 data-animate style="--stagger:2" class="text-4xl pb-2 mt-4">Hi, I'm Chris</h1>
       <br />
 
-      <p data-animate
-      style="--stagger:2" >
-        I'm a <b>Mechanical Engineer</b>, <b>Supply Chain Expert</b>, and self-taught 
-        <b>Web Developer</b>, located in Los Angeles. I'm currently working as a Systems Analyst at SpaceX, 
-        driving process improvement for the Raptor, Starship, and Launch Vehicle Supply Chain Teams.
+      <p data-animate style="--stagger:2">
+        I'm a <b>Mechanical Engineer</b>, <b>Supply Chain Expert</b>, and self-taught
+        <b>Web Developer</b>, located in Los Angeles. I'm currently working as a Systems Analyst at SpaceX, driving process improvement for
+        the Raptor, Starship, and Launch Vehicle Supply Chain Teams.
       </p>
 
       <br />
-      <p data-animate
-      style="--stagger:2" >
-        In my free time, you can find me watching web development tutorials,
-        catching splat points at Orangetheory, or producing <a
+      <p data-animate style="--stagger:2">
+        In my free time, you can find me watching web development tutorials, catching splat points at Orangetheory, or producing <a
           href="https://soundcloud.com/crussell"
           data-splitbee-event="Visit Soundcloud"
           data-splitbee-event-linkType="Body"
-          target="_blank">house music</a>. I also enjoy <a href="/blog">writing</a>, djing, and photography.
+          target="_blank">house music</a
+        >. I also enjoy <a href="/blog">writing</a>, djing, and photography.
       </p>
       <br />
       <br />
-      <h2 data-animate
-      style="--stagger:3" class="text-3xl pb-4">Things I've Built</h2>
+      <h2 data-animate style="--stagger:3" class="text-3xl pb-4">Things I've Built</h2>
 
-      <section 
-      data-animate
-      style="--stagger:3"
-        id="projects"
-        class="grid grid-cols-1 gap-4 auto-cols-max sm:grid-cols-2 sm:gap-3"
-      >
+      <section data-animate style="--stagger:3" id="projects" class="grid grid-cols-1 gap-4 auto-cols-max sm:grid-cols-2 sm:gap-3">
         {
           pinnedRepos.map((repo) => {
             return (
-              <Project
-                name={repo.repo}
-                owner={repo.owner}
-                description={repo.description}
-                stars={repo.stars}
-                language={repo.language}
-              />
+              <Project name={repo.repo} owner={repo.owner} description={repo.description} stars={repo.stars} language={repo.language} />
             );
           })
         }

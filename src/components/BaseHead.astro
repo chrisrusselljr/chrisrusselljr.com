@@ -9,15 +9,14 @@ export interface Props {
   image?: string;
 }
 
-const {
-  title,
-  description,
-  image = new URL("/images/banner.png", Astro.url),
-} = Astro.props;
+const { title, description, image = new URL("/images/banner.png", Astro.url) } = Astro.props;
 ---
 
 <!-- Font-Awesome SVG Icons -->
 <script defer src="https://kit.fontawesome.com/d2d8a6f671.js" crossorigin="anonymous"></script>
+
+<!-- Google Client Library for Identity Authentication -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
@@ -25,12 +24,12 @@ const {
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
 <!-- generics -->
-<link rel="icon" href="/favicon_32.png" sizes="32x32">
-<link rel="icon" href="/favicon_128.png" sizes="128x128">
-<link rel="icon" href="/favicon_192.png" sizes="192x192">
+<link rel="icon" href="/favicon_32.png" sizes="32x32" />
+<link rel="icon" href="/favicon_128.png" sizes="128x128" />
+<link rel="icon" href="/favicon_192.png" sizes="192x192" />
 
 <!-- iOS -->
-<link rel="apple-touch-icon" href="/favicon_apple_180.png" sizes="180x180">
+<link rel="apple-touch-icon" href="/favicon_apple_180.png" sizes="180x180" />
 
 <meta name="generator" content={Astro.generator} />
 
@@ -49,7 +48,7 @@ const {
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:domain" content="chrisrusselljr.com">
+<meta property="twitter:domain" content="chrisrusselljr.com" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />

@@ -2,8 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["referentialIntegrity"]
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -12,11 +11,23 @@ datasource db {
   relationMode = "prisma"
 }
 
-model Guestbook {
-  id        Int      @id @default(autoincrement())
-  name      String   @db.VarChar(256)
-  email     String   @db.VarChar(256)
-  content   String   @db.VarChar(500)
+model User {
+  userId    Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  picture   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Post {
+  postId      Int      @id @default(autoincrement())
+  content     String   @db.VarChar(500)
+  published   Boolean  @default(true)
+  userId      Int
+  userEmail   String
+  userName    String
+  userPicture String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

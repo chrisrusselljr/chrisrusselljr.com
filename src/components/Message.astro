@@ -1,0 +1,56 @@
+---
+import { format } from "date-fns";
+
+export interface Props {
+  postId: number;
+  content: string;
+  userId: number;
+  userName: string;
+  createdAt: Date;
+  currentUserId?: number;
+}
+
+const { postId, content, userId, userName, createdAt, currentUserId } = Astro.props;
+---
+
+<div data-message-id={postId} data-user-id={userId} class="flex flex-col space-y-2">
+  <p class="w-full break-words">{content}</p>
+  <div class="flex items-center space-x-3">
+    <p class="text-sm text-gray-500">
+      {userName} / {format(new Date(createdAt), "d MMM yyyy 'at' h:mm bb")}
+    </p>
+    {
+      currentUserId === userId && (
+        <>
+          <button
+            class="text-sm text-red-400 leading-7"
+            data-name="delete-button"
+            data-item-id={postId}
+            onclick={`handleDelete(${postId})`}
+          >
+            Delete
+          </button>
+        </>
+      )
+    }
+  </div>
+</div>
+
+<script>
+  async function handleDelete(postId: number) {
+    const req = await fetch("/api/delete", {
+      method: "POST",
+      body: JSON.stringify({ postId: postId }),
+    });
+    if (req.ok) {
+      const element = document.querySelector(`[data-message-id="${postId}"]`);
+      if (element) {
+        element.remove();
+      }
+    }
+  }
+  if (typeof window !== "undefined") {
+    let currentWindow = window as any;
+    currentWindow.handleDelete = handleDelete;
+  }
+</script>

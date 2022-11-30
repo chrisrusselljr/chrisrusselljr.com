@@ -1,0 +1,68 @@
+<form id="form" class="relative my-4" data-animate style="--stagger:3">
+  <input
+    id="userInput"
+    name="userInput"
+    aria-label="Your message"
+    placeholder="Your message..."
+    maxlength="100"
+    required
+    class="pl-4 pr-32 py-2 mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full border-gray-300 rounded-md bg-gray-800 text-gray-100"
+  />
+  <button
+    id="submit-button"
+    class="flex items-center justify-center absolute right-1 top-1 px-4 pt-1 font-medium h-8 bg-gray-700 text-gray-100 rounded w-28"
+    type="submit"
+  >
+    Submit
+  </button>
+</form>
+
+<p id="thank-you-message" class="items-center text-sm font-bold text-green-400 #thank-you-message">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="mr-2 h-4 w-4">
+    <path
+      fill-rule="evenodd"
+      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+      clip-rule="evenodd"></path>
+  </svg>
+  Thank you for your submission!
+</p>
+
+<style>
+  #thank-you-message {
+    display: none;
+  }
+
+  #thank-you-message.show {
+    display: flex;
+  }
+</style>
+
+<script>
+  import { revalidateMessages } from "../utils/dom";
+
+  const signGuestbook = async (event: Event) => {
+    event.preventDefault();
+
+    const req = await fetch("/api/sign", {
+      method: "POST",
+      body: JSON.stringify({
+        content: userInput.value,
+      }),
+    });
+
+    if (req.ok) {
+      await revalidateMessages("#messages-list");
+    }
+
+    thankYouMessage.classList.add("show");
+    userInput.value = "";
+  };
+
+  const form = document.getElementById("form") as HTMLFormElement;
+  const userInput = document.getElementById("userInput") as HTMLInputElement;
+  const thankYouMessage = document.querySelector("#thank-you-message") as HTMLParagraphElement;
+  const loggedIn = document.getElementById("submit-button");
+  if (loggedIn) {
+    form.addEventListener("submit", signGuestbook);
+  }
+</script>
