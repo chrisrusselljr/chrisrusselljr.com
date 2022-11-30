@@ -2,7 +2,7 @@ import type { APIRoute } from "astro";
 import { prisma } from "../../utils/db";
 import { userData } from "../../atoms/index";
 
-export const post: APIRoute = async ({ request }) => {
+export const post: APIRoute = async ({ params, request }) => {
   const body = await request.json();
   const content = body.content;
 
@@ -21,7 +21,7 @@ export const post: APIRoute = async ({ request }) => {
     },
   });
 
-  console.log(newPost);
+  // console.log(newPost);
 
   return new Response(null, {
     status: 200,
