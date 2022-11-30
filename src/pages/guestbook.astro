@@ -9,8 +9,15 @@ import GuestbookForm from "../components/GuestbookForm.astro";
 const messages = await guestbookLoader();
 import { isLoggedIn } from "../utils/auth";
 const user = await isLoggedIn(Astro.request);
-
+import {setUser} from "../atoms/index";
 import type { GuestbookPost } from "../types/index";
+
+setUser({
+    userId: user.userId,
+    userName: user.userName,
+    userEmail: user.userEmail,
+    userPicture: user.userPicture,
+  });
 ---
 
 <html lang="en">
