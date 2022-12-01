@@ -17,9 +17,11 @@ type PinnedRepo = {
   forks: string;
 };
 
-const pinnedRepos = await fetch("https://gh-pinned-repos.egoist.dev/?username=chrisrusselljr").then(async (response) => {
-  return (await response.json()) as PinnedRepo[];
-});
+const pinnedRepos = await fetch("https://gh-pinned-repos.egoist.dev/?username=chrisrusselljr").then(
+  async (response) => {
+    return (await response.json()) as PinnedRepo[];
+  }
+);
 ---
 
 <!DOCTYPE html>
@@ -39,13 +41,18 @@ const pinnedRepos = await fetch("https://gh-pinned-repos.egoist.dev/?username=ch
 
       <p data-animate style="--stagger:2">
         I'm a <b>Mechanical Engineer</b>, <b>Supply Chain Expert</b>, and self-taught
-        <b>Web Developer</b>, located in Los Angeles. I'm currently working as a Systems Analyst at SpaceX, driving process improvement for
-        the Raptor, Starship, and Launch Vehicle Supply Chain Teams.
+        <b>Web Developer</b>, located in Los Angeles. I'm currently working as a Systems Analyst at <a
+          href="https://www.spacex.com/"
+          data-splitbee-event="Visit SpaceX"
+          data-splitbee-event-linkType="Body"
+          target="_blank">SpaceX</a
+        >, driving process improvement for the Raptor, Starship, and Launch Vehicle Supply Chain Teams.
       </p>
 
       <br />
       <p data-animate style="--stagger:2">
-        In my free time, you can find me watching web development tutorials, catching splat points at Orangetheory, or producing <a
+        In my free time, you can find me watching web development tutorials, catching splat points at Orangetheory, or
+        producing <a
           href="https://soundcloud.com/crussell"
           data-splitbee-event="Visit Soundcloud"
           data-splitbee-event-linkType="Body"
@@ -56,11 +63,22 @@ const pinnedRepos = await fetch("https://gh-pinned-repos.egoist.dev/?username=ch
       <br />
       <h2 data-animate style="--stagger:3" class="text-3xl pb-4">Things I've Built</h2>
 
-      <section data-animate style="--stagger:3" id="projects" class="grid grid-cols-1 gap-4 auto-cols-max sm:grid-cols-2 sm:gap-3">
+      <section
+        data-animate
+        style="--stagger:3"
+        id="projects"
+        class="grid grid-cols-1 gap-4 auto-cols-max sm:grid-cols-2 sm:gap-3"
+      >
         {
           pinnedRepos.map((repo) => {
             return (
-              <Project name={repo.repo} owner={repo.owner} description={repo.description} stars={repo.stars} language={repo.language} />
+              <Project
+                name={repo.repo}
+                owner={repo.owner}
+                description={repo.description}
+                stars={repo.stars}
+                language={repo.language}
+              />
             );
           })
         }
