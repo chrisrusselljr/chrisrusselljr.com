@@ -17,8 +17,8 @@ npm run dev
 
 Post Ideas
 
-- [ ] naive with managers (failure to be rude in conversation)
-- [ ] knowing your true north (learning, being challenged, when to move around)
+- [ ] Being naive with managers (failure to be rude in conversation)
+- [ ] Knowing your true north (learning, being challenged, when to leave)
 
 Project Ideas
 
