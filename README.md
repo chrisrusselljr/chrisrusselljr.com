@@ -1,8 +1,12 @@
 # Portfolio
 
-Personal blog of Chris Russell Jr. made made using [Astro](https://astro.build). Inspired by Nexxel's work [here](https://github.com/nexxeln/nexxel.dev).
+Personal website of Chris Russell Jr.
 
-## Make it Work
+Made made using [Astro](https://astro.build).
+
+Inspired by Nexxel's work [here](https://github.com/nexxeln/nexxel.dev).
+
+## Setup
 
 ```sh
 npm i
@@ -14,7 +18,7 @@ npm run dev
 Post Ideas
 
 - [ ] naive with managers (failure to be rude in conversation)
-- [ ] knowing your true north (learning, being challenged)
+- [ ] knowing your true north (learning, being challenged, when to move around)
 
 Project Ideas
 
@@ -23,7 +27,7 @@ Project Ideas
 
 ## Prisma Installation
 
-```
+```py
 # install
 npm install prisma --save-dev
 npx prisma init
@@ -39,7 +43,7 @@ datasource db {
   relationMode = "prisma"
 }
 
-# push new schema
+# Push new schema
 npx prisma db push
 
 # Run prisma studio with
@@ -47,4 +51,17 @@ npx prisma studio
 
 # New database schema
 npx prisma migrate reset
+
+# Re-push updated schema
+npx prisma db push
+```
+
+## Environment Variables (.env)
+
+```sh
+DATABASE_URL=
+NODE_ENV =
+JWT_SECRET =
+PUBLIC_SIGN_IN_WITH_GOOGLE_CLIENT_ID =
+SIGN_IN_WITH_GOOGLE_SECRET =
 ```
