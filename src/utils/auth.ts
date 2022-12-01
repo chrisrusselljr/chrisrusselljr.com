@@ -1,6 +1,5 @@
 import { parse } from "lightcookie";
 import jwt from "jsonwebtoken";
-import { setUser } from "../atoms/index";
 import { JWT_SECRET } from "../constants/index";
 import { User } from "../types/index";
 
@@ -25,13 +24,6 @@ export async function isLoggedIn(req) {
             userEmail: decoded.userEmail,
             userPicture: decoded.userPicture,
           };
-
-          setUser({
-            userId: user.userId,
-            userName: user.userName,
-            userEmail: user.userEmail,
-            userPicture: user.userPicture,
-          });
         }
       });
     }

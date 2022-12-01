@@ -1,13 +1,11 @@
 import type { APIRoute } from "astro";
 import { prisma } from "../../utils/db";
-import { userData } from "../../atoms/index";
 import { User } from "../../types/index";
 import { parse } from "lightcookie";
 import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "../../constants/index";
-import { setUser } from "../../atoms/index";
 
-export const post: APIRoute = async ({ params, request }) => {
+export const post: APIRoute = async ({ request }) => {
   let user = {} as User;
   const cookie = request.headers.get("cookie");
 
@@ -23,13 +21,6 @@ export const post: APIRoute = async ({ params, request }) => {
             userEmail: decoded.userEmail,
             userPicture: decoded.userPicture,
           };
-
-          setUser({
-            userId: user.userId,
-            userName: user.userName,
-            userEmail: user.userEmail,
-            userPicture: user.userPicture,
-          });
         }
       });
     }
@@ -38,10 +29,10 @@ export const post: APIRoute = async ({ params, request }) => {
   const body = await request.json();
   const content = body.content;
 
-  const userName = userData.get().userName;
-  const userId = userData.get().userId;
-  const userEmail = userData.get().userEmail;
-  const userPicture = userData.get().userPicture;
+  const userName = user.userName;
+  const userId = user.userId;
+  const userEmail = user.userEmail;
+  const userPicture = user.userPicture;
 
   await prisma.post.create({
     data: {

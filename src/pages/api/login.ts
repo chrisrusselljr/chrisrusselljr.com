@@ -5,8 +5,6 @@ import { prisma } from "../../utils/db";
 import { OAuth2Client } from "google-auth-library";
 import { User } from "../../types/index";
 
-import { setUser, userData } from "../../atoms/index";
-
 function sevenDaysFromNow() {
   const d = new Date();
   const time = 7 * 24 * 60 * 60 * 1000;
@@ -60,13 +58,6 @@ export const post: APIRoute = async ({ request }) => {
     userPicture: payload.picture, //!= null ? payload.picture : undefined
   });
   const headers = createHeaders({ jwt, location: "/guestbook" });
-
-  setUser({
-    userId: upsertUser.userId,
-    userName: payload.name,
-    userEmail: payload.email,
-    userPicture: payload.picture,
-  });
 
   return new Response(null, {
     status: 200,
