@@ -1,11 +1,9 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import heroImage from "../../public/images/hero.jpeg";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, TWITTER, GITHUB, LINKEDIN } from "../config";
 import Project from "../components/Project.astro";
-import { Image } from "@astrojs/image/components";
 
 type PinnedRepo = {
   owner: string;
@@ -33,7 +31,11 @@ const pinnedRepos = await fetch("https://gh-pinned-repos.egoist.dev/?username=ch
     <Header title={SITE_TITLE} />
     <main class="text-lg text-neutral-200">
       <div class="flex justify-evenly">
-        <Image data-animate style="--stagger:1" src={heroImage} class="rounded-full m-3 w-3/4" alt="hero-image" />
+        <picture data-animate style="--stagger:1">
+          <source srcset="/images/hero.avif" type="image/avif" class="rounded-full m-3 w-3/4" />
+          <source srcset="/images/hero.webp" type="image/webp" class="rounded-full m-3 w-3/4" />
+          <img src="/images/hero.jpeg" class="rounded-full m-3 w-3/4" alt="hero-image" />
+        </picture>
       </div>
 
       <h1 data-animate style="--stagger:2" class="text-4xl pb-2 mt-4">Hi, I'm Chris</h1>
