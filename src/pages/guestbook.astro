@@ -69,7 +69,6 @@ import type { GuestbookPost } from "../types/index";
     <script>
       import splitbee from "@splitbee/web";
       import { googleSignInResponse } from "../types/index";
-      import { revalidateMessages } from "../utils/dom";
       splitbee.init();
 
       const handleCredentialResponse = async (response: googleSignInResponse) => {
@@ -81,13 +80,11 @@ import type { GuestbookPost } from "../types/index";
         });
 
         if (req.ok) {
-          // return Astro.redirect("/guestbook");
-          // await revalidateMessages("#submission-form");
           window.location.reload();
         }
       };
 
-      window.onload = function () {
+      window.onload =  function () {
         // @ts-ignore
         google.accounts.id.initialize({
           client_id: import.meta.env.PUBLIC_SIGN_IN_WITH_GOOGLE_CLIENT_ID,
