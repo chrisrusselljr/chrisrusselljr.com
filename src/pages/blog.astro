@@ -8,6 +8,7 @@ import { SITE_TITLE, TWITTER, GITHUB, LINKEDIN } from "../config";
 const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
   (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
 );
+import "../styles/global.css";
 ---
 
 <!DOCTYPE html>
