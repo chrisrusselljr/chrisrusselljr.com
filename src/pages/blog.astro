@@ -3,30 +3,22 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Blog from "../components/Blog.astro";
-import { SITE_TITLE, TWITTER, GITHUB, LINKEDIN} from "../config";
+import { SITE_TITLE, TWITTER, GITHUB, LINKEDIN } from "../config";
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
-  (a, b) =>
-    new Date(b.frontmatter.pubDate).valueOf() -
-    new Date(a.frontmatter.pubDate).valueOf()
+  (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
 );
 ---
 
-<!DOCTYPE html>
 <html lang="en">
   <head>
-    <BaseHead
-      title={`${SITE_TITLE} blog`}
-      description="Learnings of an aspiring engineer."
-    />
+    <BaseHead title={`${SITE_TITLE} blog`} description="Learnings of an aspiring engineer." />
   </head>
   <body>
     <Header />
     <main>
-      <h1 data-animate
-      style="--stagger:1" class="pb-6">Blog</h1>
-      <section data-animate
-      style="--stagger:2">
+      <h1 data-animate style="--stagger:1" class="pb-6">Blog</h1>
+      <section data-animate style="--stagger:2">
         {
           posts.map((post) => (
             <Blog
@@ -35,16 +27,15 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
               readingTime={post.frontmatter.readingTime}
               date={post.frontmatter.pubDate}
               url={post.url}
-         
             />
           ))
         }
       </section>
     </main>
-    <Footer twitter={TWITTER} github={GITHUB} linkedin={LINKEDIN} animate={3}/>
+    <Footer twitter={TWITTER} github={GITHUB} linkedin={LINKEDIN} animate={3} />
+    <script>
+      import splitbee from "@splitbee/web";
+      splitbee.init();
+    </script>
   </body>
-  <script>
-    import splitbee from "@splitbee/web";
-    splitbee.init();
-  </script>
 </html>
