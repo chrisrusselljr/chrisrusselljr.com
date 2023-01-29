@@ -17,22 +17,22 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
   </head>
   <body>
     <Header />
-    <main>
-      <h1 data-animate style="--stagger:1" class="pb-6">Blog</h1>
-      <section data-animate style="--stagger:2">
-        {
-          posts.map((post) => (
-            <Blog
-              title={post.frontmatter.title}
-              description={post.frontmatter.description}
-              readingTime={post.frontmatter.readingTime}
-              date={post.frontmatter.pubDate}
-              url={post.url}
-            />
-          ))
-        }
-      </section>
-    </main>
+
+    <h1 data-animate style="--stagger:1" class="pb-6">Blog</h1>
+    <section data-animate style="--stagger:2">
+      {
+        posts.map((post) => (
+          <Blog
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            readingTime={post.frontmatter.readingTime}
+            date={post.frontmatter.pubDate}
+            url={post.url}
+          />
+        ))
+      }
+    </section>
+
     <Footer twitter={TWITTER} github={GITHUB} linkedin={LINKEDIN} animate={3} />
     <script>
       import splitbee from "@splitbee/web";
