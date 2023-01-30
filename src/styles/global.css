@@ -20,8 +20,7 @@
 
 @font-face {
   font-family: "Inter";
-  src: local("Inter ExtraBold"), local("Inter-ExtraBold"),
-    url("/fonts/Inter-ExtraBold.woff2") format("woff2");
+  src: local("Inter ExtraBold"), local("Inter-ExtraBold"), url("/fonts/Inter-ExtraBold.woff2") format("woff2");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -29,8 +28,7 @@
 
 @font-face {
   font-family: "Inter";
-  src: local("Inter Bold"), local("Inter-Bold"),
-    url("/fonts/Inter-Bold.woff2") format("woff2");
+  src: local("Inter Bold"), local("Inter-Bold"), url("/fonts/Inter-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -38,8 +36,7 @@
 
 @font-face {
   font-family: "Inter";
-  src: local("Inter Medium"), local("Inter-Medium"),
-    url("/fonts/Inter-Medium.woff2") format("woff2");
+  src: local("Inter Medium"), local("Inter-Medium"), url("/fonts/Inter-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -47,8 +44,7 @@
 
 @font-face {
   font-family: "Inter";
-  src: local("Inter Regular"), local("Inter-Regular"),
-    url("/fonts/Inter-Regular.woff2") format("woff2");
+  src: local("Inter Regular"), local("Inter-Regular"), url("/fonts/Inter-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -84,7 +80,6 @@ h3 {
 
 p {
   @apply text-neutral-200 leading-7;
-  
 }
 
 b {
@@ -186,4 +181,3 @@ ul > li::marker {
     transform: none;
   }
 }
-
