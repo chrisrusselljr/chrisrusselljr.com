@@ -58,7 +58,7 @@ export const EmailSelect = () => {
               <a
                 className={`block px-4 py-2 text-sm rounded-b-xl hover:no-underline w-full ${active ? "bg-neutral-800" : ""
                   }`}
-                href="mailto:chris@tetrateras.com"
+                href="mailto:chris.russell02@gmail.com"
                 data-splitbee-event="Email Sent"
               >
                 <div className="flex justify-between">
