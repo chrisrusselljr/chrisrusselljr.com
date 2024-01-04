@@ -7,7 +7,7 @@ const {parse} = pkg;
 
 import { JWT_SECRET } from "../../constants/index";
 
-export const post: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request }) => {
   let user = {} as User;
   const cookie = request.headers.get("cookie");
 

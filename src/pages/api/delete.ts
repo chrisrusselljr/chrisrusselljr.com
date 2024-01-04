@@ -1,7 +1,7 @@
 import type { APIContext } from "astro";
 import { prisma } from "../../utils/db";
 
-export async function post({ request }: APIContext) {
+export async function POST({ request }: APIContext) {
   const body = (await request.json()) as { postId: number };
 
   try {

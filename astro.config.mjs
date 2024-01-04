@@ -19,8 +19,10 @@ import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "static",
-  adapter: netlify(),
+  output: "server",
+  adapter: netlify({
+    edgeMiddleware: true
+  }),
   site: "https://www.chrisrusselljr.com",
   markdown: {
     extendDefaultPlugins: true,

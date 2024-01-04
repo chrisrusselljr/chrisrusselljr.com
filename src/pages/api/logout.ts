@@ -1,6 +1,6 @@
 import { AUTH_COOKIE_NAME } from "../../constants/index";
 
-export async function get() {
+export async function GET() {
   const headers = new Headers();
 
   headers.append("Set-Cookie", `${AUTH_COOKIE_NAME}=""; Max-Age=1; Path=/; HttpOnly; Secure;`);
