@@ -15,13 +15,12 @@ import netlify from '@astrojs/netlify/functions';
 
 // https://astro.build/config
 import netlify from "@astrojs/netlify";
-import node from '@astrojs/node';
 
 // https://astro.build/config
 
 // https://astro.build/config
 export default defineConfig({
-  output: "hybrid",
+  output: "server",
   adapter: netlify({
     edgeMiddleware: true
   }),

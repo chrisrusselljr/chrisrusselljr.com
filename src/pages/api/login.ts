@@ -26,6 +26,7 @@ export const createToken = ({ userId, userName, userEmail, userPicture }: User) 
   jwt.sign({ userId, userName, userEmail, userPicture }, JWT_SECRET, { expiresIn: "7d" });
 
 export const post: APIRoute = async ({ request }) => {
+  console.log('in login api route');
   const CLIENT_ID = PUBLIC_SIGN_IN_WITH_GOOGLE_CLIENT_ID;
   const client = new OAuth2Client(CLIENT_ID);
   const body = (await request.json()) as { token: string };

@@ -10,7 +10,6 @@ const messages = await guestbookLoader();
 import { isLoggedIn } from "../utils/auth";
 const user = await isLoggedIn(Astro.request);
 import type { GuestbookPost } from "../types/index";
-
 ---
 
 <html lang="en">
@@ -73,6 +72,7 @@ import type { GuestbookPost } from "../types/index";
       splitbee.init();
 
       const handleCredentialResponse = async (response: googleSignInResponse) => {
+        console.log('in handle credential response');
         const req = await fetch("/api/login", {
           method: "POST",
           body: JSON.stringify({
@@ -86,6 +86,7 @@ import type { GuestbookPost } from "../types/index";
       };
 
       window.onload =  function () {
+        console.log('in window onload');
         // @ts-ignore
         google.accounts.id.initialize({
           client_id: import.meta.env.PUBLIC_SIGN_IN_WITH_GOOGLE_CLIENT_ID,
