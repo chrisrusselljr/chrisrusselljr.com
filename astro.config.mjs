@@ -7,7 +7,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { remarkReadingTime } from "./src/utils/reading-time.mjs";
 import prefetch from "@astrojs/prefetch";
 
-
+import netlify from '@astrojs/netlify/functions';
 // https://astro.build/config
 
 // https://astro.build/config
@@ -23,7 +23,9 @@ import node from '@astrojs/node';
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  adapter: netlify(),
+  adapter: netlify({
+    edgeMiddleware: true
+  }),
   site: "https://www.chrisrusselljr.com",
   markdown: {
     extendDefaultPlugins: true,
