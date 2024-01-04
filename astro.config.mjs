@@ -44,5 +44,10 @@ export default defineConfig({
   }), react(), prefetch()],
   build: {
     inlineStylesheets: 'never'
-  }
+  },
+  vite: {
+    ssr: {
+      noExternal: ['path-to-regexp'],
+    },
+  },
 });
