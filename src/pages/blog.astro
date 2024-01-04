@@ -2,7 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import Blog from "../components/Blog.astro";
+import BlogThing from "../components/BlogThing.astro";
 import { SITE_TITLE, TWITTER, GITHUB, LINKEDIN} from "../config";
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
@@ -29,7 +29,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
       style="--stagger:2">
         {
           posts.map((post) => (
-            <Blog
+            <BlogThing
               title={post.frontmatter.title}
               description={post.frontmatter.description}
               readingTime={post.frontmatter.readingTime}
