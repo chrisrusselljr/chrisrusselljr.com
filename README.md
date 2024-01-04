@@ -13,6 +13,11 @@ npm i
 npm run dev
 ```
 
+## Fix lock file
+```sh
+npm install --package-lock-only
+```
+
 ## Planning
 
 Post Ideas
