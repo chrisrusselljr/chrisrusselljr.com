@@ -13,5 +13,5 @@ export const get = () =>
     // simple example: generate items for every md file in /src/pages
     // see "Generating items" section for required frontmatter and advanced use cases
     items: import.meta.glob("./blog/**/*.{md,mdx}"),
-    stylesheet: "/rss/styles.xsl",
+    stylesheet: "/src/rss/styles.xsl",
   });
