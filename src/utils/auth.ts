@@ -1,7 +1,9 @@
-import { parse } from "lightcookie";
 import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "../constants/index";
-import { User } from "../types/index";
+import { type User } from "../types/index";
+import pkg from 'lightcookie';
+const {parse} = pkg;
+
 
 export async function isLoggedIn(req) {
   let user = {} as authUser;

@@ -1,8 +1,10 @@
 import type { APIRoute } from "astro";
 import { prisma } from "../../utils/db";
-import { User } from "../../types/index";
-import { parse } from "lightcookie";
+import { type User } from "../../types/index";
 import jwt from "jsonwebtoken";
+import pkg from 'lightcookie';
+const {parse} = pkg;
+
 import { JWT_SECRET } from "../../constants/index";
 
 export const post: APIRoute = async ({ request }) => {

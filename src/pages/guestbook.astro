@@ -69,7 +69,7 @@ import type { GuestbookPost } from "../types/index";
     <Footer twitter={TWITTER} github={GITHUB} linkedin={LINKEDIN} animate={4} />
     <script>
       import splitbee from "@splitbee/web";
-      import { googleSignInResponse } from "../types/index";
+      import type { googleSignInResponse } from "../types/index";
       splitbee.init();
 
       const handleCredentialResponse = async (response: googleSignInResponse) => {

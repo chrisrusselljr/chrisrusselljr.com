@@ -35,7 +35,7 @@ export default defineConfig({
   },
   integrations: [mdx(), sitemap({
     customPages: ["https://www.chrisrusselljr.com/blog",
-    // "https://www.chrisrusselljr.com/guestbook",
+     "https://www.chrisrusselljr.com/guestbook",
     "https://www.chrisrusselljr.com/blog/empowerment", "https://www.chrisrusselljr.com/blog/five-tips-for-effective-team-members", "https://www.chrisrusselljr.com/blog/dont-ask-for-feedback"]
   }), tailwind({
     // Example: Disable injecting a basic `base.css` import on every page.

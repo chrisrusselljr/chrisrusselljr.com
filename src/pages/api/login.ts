@@ -3,7 +3,7 @@ import type { APIRoute } from "astro";
 import jwt from "jsonwebtoken";
 import { prisma } from "../../utils/db";
 import { OAuth2Client } from "google-auth-library";
-import { User } from "../../types/index";
+import { type User } from "../../types/index";
 
 function sevenDaysFromNow() {
   const d = new Date();
