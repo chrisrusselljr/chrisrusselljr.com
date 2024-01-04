@@ -5,10 +5,8 @@ import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { remarkReadingTime } from "./src/utils/reading-time.mjs";
-
 import prefetch from "@astrojs/prefetch";
 
-// https://astro.build/config
 
 // https://astro.build/config
 
@@ -18,15 +16,14 @@ import prefetch from "@astrojs/prefetch";
 
 // https://astro.build/config
 import netlify from "@astrojs/netlify";
-
 import node from '@astrojs/node';
+
+// https://astro.build/config
 
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  adapter: node({
-    mode: 'standalone'
-  }),
+  adapter: netlify(),
   site: "https://www.chrisrusselljr.com",
   markdown: {
     extendDefaultPlugins: true,
@@ -47,6 +44,5 @@ export default defineConfig({
   }), react(), prefetch()],
   build: {
     inlineStylesheets: 'never'
-  },
-
+  }
 });
