@@ -45,7 +45,6 @@ export default defineConfig({
     applyBaseStyles: false
   }), react(), prefetch()],
   build: {
-    inlineStylesheets: 'never'
   },
   vite: {
     ssr: {
