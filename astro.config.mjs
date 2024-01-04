@@ -42,13 +42,16 @@ export default defineConfig({
         "https://www.chrisrusselljr.com/blog/dont-ask-for-feedback",
       ],
     }),
-    tailwind(),
+    tailwind({
+      // Example: Disable injecting a basic `base.css` import on every page.
+      // Useful if you need to define and/or import your own custom `base.css`.
+      applyBaseStyles: false,
+    }),
     react(),
     prefetch(),
     image({
       serviceEntryPoint: "@astrojs/image/sharp",
     }),
-    
   ],
   build: {
     inlineStylesheets: 'never'
