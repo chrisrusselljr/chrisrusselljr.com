@@ -48,6 +48,10 @@ export default defineConfig({
     image({
       serviceEntryPoint: "@astrojs/image/sharp",
     }),
+    
   ],
+  build: {
+    inlineStylesheets: 'never'
+  },
   adapter: netlify(),
 });
