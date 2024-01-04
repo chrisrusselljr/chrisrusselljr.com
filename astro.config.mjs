@@ -16,16 +16,13 @@ import netlify from '@astrojs/netlify/functions';
 
 // https://astro.build/config
 import netlify from "@astrojs/netlify";
-import node from '@astrojs/node';
 
 // https://astro.build/config
 
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  adapter: netlify({
-    edgeMiddleware: true
-  }),
+  adapter: netlify(),
   site: "https://www.chrisrusselljr.com",
   markdown: {
     extendDefaultPlugins: true,
