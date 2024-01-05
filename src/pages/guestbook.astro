@@ -91,7 +91,6 @@ import type { GuestbookPost } from "../types/index";
       };
 
       function googleSignIn() {
-
         // @ts-ignore
         google.accounts.id.initialize({
           client_id: import.meta.env.PUBLIC_SIGN_IN_WITH_GOOGLE_CLIENT_ID,
@@ -102,18 +101,19 @@ import type { GuestbookPost } from "../types/index";
           theme: "outline",
           size: "large",
           type: "standard",
-          width: "220"
+          width: "220",
         });
-      };
+      }
       googleSignIn();
-      document.addEventListener("astro:after-swap", googleSignIn);
+      // Add window onload event listener
+      window.onload = function () {
+        googleSignIn();
+      };
+      document.addEventListener("astro:page-load", googleSignIn);
     </script>
-  </body>
+  </body><style>
+    #buttonDiv {
+      color-scheme: light;
+    }
+  </style>
 </html>
-<style>
-  #buttonDiv {
-    color-scheme: light;
-
-}
-
-</style>
