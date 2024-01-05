@@ -48,7 +48,7 @@ import type { GuestbookPost } from "../types/index";
             <p class="text-sm text-gray-200">Your information is only used to display your name.</p>
           </>
         ) : (
-          <button id="buttonDiv" class="mt-2" />
+          <button id="buttonDiv" class="mt-2" data-animate style="--stagger:4"/>
         )
       }
     </div>
@@ -101,7 +101,6 @@ import type { GuestbookPost } from "../types/index";
           theme: "outline",
           size: "large",
           type: "standard",
-          width: "220",
         });
       }
     
@@ -119,6 +118,8 @@ import type { GuestbookPost } from "../types/index";
   </body><style>
     #buttonDiv {
       color-scheme: light;
+      height: 44px;
+    width: auto;
     }
   </style>
 </html>

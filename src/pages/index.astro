@@ -3,23 +3,23 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, TWITTER, GITHUB, LINKEDIN } from "../config";
-import Project from "../components/Project.astro";
+// import Project from "../components/Project.astro";
 
-type PinnedRepo = {
-  owner: string;
-  repo: string;
-  description: string;
-  language: string;
-  languageColor: string;
-  stars: number;
-  forks: string;
-};
+// type PinnedRepo = {
+//   owner: string;
+//   repo: string;
+//   description: string;
+//   language: string;
+//   languageColor: string;
+//   stars: number;
+//   forks: string;
+// };
 
-const pinnedRepos = await fetch("https://gh-pinned-repos.egoist.dev/?username=chrisrusselljr").then(
-  async (response) => {
-    return (await response.json()) as PinnedRepo[];
-  }
-);
+// const pinnedRepos = await fetch("https://gh-pinned-repos.egoist.dev/?username=chrisrusselljr").then(
+//   async (response) => {
+//     return (await response.json()) as PinnedRepo[];
+//   }
+// );
 ---
 
 <!DOCTYPE html>
