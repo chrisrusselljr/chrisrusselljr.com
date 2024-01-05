@@ -75,7 +75,7 @@ import type { GuestbookPost } from "../types/index";
       import splitbee from "@splitbee/web";
       import type { googleSignInResponse } from "../types/index";
       splitbee.init();
-
+    
       const handleCredentialResponse = async (response: googleSignInResponse) => {
         console.log("in handle credential response");
         const req = await fetch("/api/login", {
@@ -84,12 +84,12 @@ import type { GuestbookPost } from "../types/index";
             token: response.credential,
           }),
         });
-
+    
         if (req.ok) {
           window.location.reload();
         }
       };
-
+    
       function googleSignIn() {
         // @ts-ignore
         google.accounts.id.initialize({
@@ -104,12 +104,16 @@ import type { GuestbookPost } from "../types/index";
           width: "220",
         });
       }
-      googleSignIn();
-      // Add window onload event listener
-      window.onload = function () {
-        googleSignIn();
-      };
-
+    
+      function loadGoogleSignInScript() {
+        const script = document.createElement('script');
+        script.src = "https://accounts.google.com/gsi/client";
+        script.onload = googleSignIn;
+        document.head.appendChild(script);
+      }
+    
+      loadGoogleSignInScript();
+    
       document.addEventListener("astro:page-load", googleSignIn);
     </script>
   </body><style>
