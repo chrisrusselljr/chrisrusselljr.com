@@ -102,10 +102,11 @@ import type { GuestbookPost } from "../types/index";
           theme: "outline",
           size: "large",
           type: "standard",
+          width: "220"
         });
       };
       googleSignIn();
-      document.addEventListener("astro:page-load", googleSignIn);
+      document.addEventListener("astro:after-swap", googleSignIn);
     </script>
   </body>
 </html>
