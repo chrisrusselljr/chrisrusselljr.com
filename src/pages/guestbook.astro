@@ -15,7 +15,7 @@ import type { GuestbookPost } from "../types/index";
 <html lang="en">
   <head>
     <BaseHead title={`${SITE_TITLE} guestbook`} description="Stop by and say 'hi'." />
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://accounts.google.com/gsi/client" async defer id="googleSignInScript"></script>
   </head>
   <body>
     <Header />
@@ -109,6 +109,9 @@ import type { GuestbookPost } from "../types/index";
       window.onload = function () {
         googleSignIn();
       };
+
+      document.getElementById('googleSignInScript').addEventListener('load', googleSignIn);
+
       document.addEventListener("astro:page-load", googleSignIn);
     </script>
   </body><style>
