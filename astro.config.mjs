@@ -19,7 +19,7 @@ import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
+  output: "hybrid",
   adapter: netlify({
     edgeMiddleware: true
   }),
@@ -41,7 +41,10 @@ export default defineConfig({
     // Useful if you need to define and/or import your own custom `base.css`.
     applyBaseStyles: false
   }), react()],
-  prefetch: true,
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "viewport"
+  },
   build: {
   },
   vite: {

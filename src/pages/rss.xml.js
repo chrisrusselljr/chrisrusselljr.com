@@ -1,6 +1,6 @@
 import rss from "@astrojs/rss";
 
-export const get = () =>
+export const GET = () =>
   rss({
     // `<title>` field in output xml
     title: "chris russell jr • blog",

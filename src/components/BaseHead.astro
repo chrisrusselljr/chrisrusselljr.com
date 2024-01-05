@@ -2,7 +2,8 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "/src/styles/global.css";
-
+import { ViewTransitions } from "astro:transitions"
+import { fade } from "astro:transitions"
 export interface Props {
   title: string;
   description: string;
@@ -11,12 +12,13 @@ export interface Props {
 
 const { title, description, image = new URL("/images/banner.png", Astro.url) } = Astro.props;
 ---
+<ViewTransitions transition:animate={fade({duration: "0.2s"})} />
 
 <!-- Preconnect or DNS-Prefetch for Font Awesome -->
-<link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
+<!-- <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin> -->
 
 <!-- Font-Awesome SVG Icons -->
-<script defer src="https://kit.fontawesome.com/d2d8a6f671.js" crossorigin="anonymous"></script>
+<!-- <script defer src="https://kit.fontawesome.com/d2d8a6f671.js" crossorigin="anonymous"></script> -->
 
 <!-- Google Client Library for Identity Authentication -->
 
@@ -61,3 +63,5 @@ const { title, description, image = new URL("/images/banner.png", Astro.url) } =
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={image} />
+
+
