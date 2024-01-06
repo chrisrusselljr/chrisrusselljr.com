@@ -1,7 +1,5 @@
 import { Menu, Transition } from "@headlessui/react";
 import { type ReactNode, Fragment } from "react";
-import { trackEvent } from "../utils/analytics.js"
-
 
 export const EmailSelect = () => {
   return (
