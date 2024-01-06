@@ -6,7 +6,6 @@ import react from "@astrojs/react";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { remarkReadingTime } from "./src/utils/reading-time.mjs";
 
-// https://astro.build/config
 
 // https://astro.build/config
 
@@ -16,6 +15,9 @@ import { remarkReadingTime } from "./src/utils/reading-time.mjs";
 import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
+
+// https://astro.build/config
+import compress from "astro-compress";
 
 // https://astro.build/config
 export default defineConfig({
@@ -33,23 +35,20 @@ export default defineConfig({
     }
   },
   integrations: [mdx(), sitemap({
-    customPages: ["https://www.chrisrusselljr.com/blog",
-     "https://www.chrisrusselljr.com/guestbook",
-    "https://www.chrisrusselljr.com/blog/empowerment", "https://www.chrisrusselljr.com/blog/five-tips-for-effective-team-members", "https://www.chrisrusselljr.com/blog/dont-ask-for-feedback"]
+    customPages: ["https://www.chrisrusselljr.com/blog", "https://www.chrisrusselljr.com/guestbook", "https://www.chrisrusselljr.com/blog/empowerment", "https://www.chrisrusselljr.com/blog/five-tips-for-effective-team-members", "https://www.chrisrusselljr.com/blog/dont-ask-for-feedback"]
   }), tailwind({
     // Example: Disable injecting a basic `base.css` import on every page.
     // Useful if you need to define and/or import your own custom `base.css`.
     applyBaseStyles: false
-  }), react()],
+  }), react(), compress()],
   prefetch: {
     prefetchAll: true,
     defaultStrategy: "viewport"
   },
-  build: {
-  },
+  build: {},
   vite: {
     ssr: {
-      noExternal: ['path-to-regexp'],
-    },
-  },
+      noExternal: ['path-to-regexp']
+    }
+  }
 });
