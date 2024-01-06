@@ -43,8 +43,4 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
     </main>
     <Footer twitter={TWITTER} github={GITHUB} linkedin={LINKEDIN} animate={3}/>
   </body>
-  <script>
-    import splitbee from "@splitbee/web";
-    splitbee.init();
-  </script>
 </html>

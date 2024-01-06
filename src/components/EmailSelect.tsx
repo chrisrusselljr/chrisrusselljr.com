@@ -27,7 +27,7 @@ export const EmailSelect = () => {
               <div
                 className={`block px-4 py-2 text-sm cursor-pointer rounded-t-xl w-full border-b border-neutral-700 ${active ? "bg-neutral-800" : ""
                   }`}
-                onClick={() => { navigator.clipboard.writeText("chris.russell02@gmail.com"); trackEvent('Email Copied') }
+                onClick={() => { navigator.clipboard.writeText("chris.russell02@gmail.com") }
 
 
                 }
@@ -59,7 +59,6 @@ export const EmailSelect = () => {
                 className={`block px-4 py-2 text-sm rounded-b-xl hover:no-underline w-full ${active ? "bg-neutral-800" : ""
                   }`}
                 href="mailto:chris.russell02@gmail.com"
-                data-splitbee-event="Email Sent"
               >
                 <div className="flex justify-between">
                   <span>Send Email</span>
