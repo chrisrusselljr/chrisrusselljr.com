@@ -2,8 +2,8 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "/src/styles/global.css";
-import { ViewTransitions } from "astro:transitions"
-import { fade } from "astro:transitions"
+import { ViewTransitions } from "astro:transitions";
+import { fade } from "astro:transitions";
 export interface Props {
   title: string;
   description: string;
@@ -12,44 +12,43 @@ export interface Props {
 
 const { title, description, image = new URL("/images/banner.png", Astro.url) } = Astro.props;
 ---
-<ViewTransitions transition:animate={fade({duration: "0.2s"})} />
 
+<head>
+  <ViewTransitions transition:animate={fade({ duration: "0.2s" })} />
 
-<!-- Global Metadata -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <!-- Global Metadata -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- generics -->
+  <link rel="icon" href="/favicon_32.png" sizes="32x32" />
+  <link rel="icon" href="/favicon_128.png" sizes="128x128" />
+  <link rel="icon" href="/favicon_192.png" sizes="192x192" />
 
-<!-- generics -->
-<link rel="icon" href="/favicon_32.png" sizes="32x32" />
-<link rel="icon" href="/favicon_128.png" sizes="128x128" />
-<link rel="icon" href="/favicon_192.png" sizes="192x192" />
+  <!-- iOS -->
+  <link rel="apple-touch-icon" href="/favicon_apple_180.png" sizes="180x180" />
 
-<!-- iOS -->
-<link rel="apple-touch-icon" href="/favicon_apple_180.png" sizes="180x180" />
+  <meta name="generator" content={Astro.generator} />
 
-<meta name="generator" content={Astro.generator} />
+  <!-- Primary Meta Tags -->
+  <title>{title}</title>
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
 
-<!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Chris Russell Jr." />
+  <meta property="og:url" content={Astro.url} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={image} />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Chris Russell Jr." />
-<meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={image} />
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:domain" content="chrisrusselljr.com" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={image} />
-
-
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:domain" content="chrisrusselljr.com" />
+  <meta property="twitter:url" content={Astro.url} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={image} />
+</head>
