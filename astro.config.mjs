@@ -6,7 +6,6 @@ import react from "@astrojs/react";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { remarkReadingTime } from "./src/utils/reading-time.mjs";
 
-
 // https://astro.build/config
 
 // https://astro.build/config
